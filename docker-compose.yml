@@ -1,17 +1,17 @@
 version: "3.7"
 
 services:
-  front:
+  frontend:
     image: node:18
     ports:
       - 3000:3000
     volumes:
-      - ./front:/usr/src
+      - ./frontend:/usr/src
     depends_on:
-      - back
+      - backend
     command: bash -c "cd /usr/src && npm run dev"
 
-  back:
+  backend:
     image: denoland/deno:1.34.1
     ports:
       - 8080:8080
